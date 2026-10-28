@@ -1,0 +1,6 @@
+<div class="csg-app">
+  <nav class="csg-onglets">
+    {{#each onglets}}<a class="{{#if actif}}actif{{/if}}" data-action="csgOnglet" data-onglet="{{id}}"><i class="{{icon}}"></i> {{localize label}}</a>{{/each}}
+  </nav>
+  {{#each onglets}}<div class="csg-zone" data-csg-zone="{{id}}"></div>{{/each}}
+</div>

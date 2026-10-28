@@ -1,0 +1,70 @@
+<section class="coc7-san-tracker">
+  <div class="coc7-deco-banner">
+    <span class="coc7-deco-line"></span>
+    <span class="coc7-deco-diamond">&#9670;</span>
+    <span class="coc7-deco-line"></span>
+  </div>
+
+  <nav class="coc7-era-filter" aria-label="{{localize 'COC7SAN.FilterLabel'}}">
+    <span class="coc7-era-filter-label">{{localize "COC7SAN.FilterLabel"}}</span>
+    {{#each eraFilters as |f|}}
+      <button type="button" class="coc7-era-filter-btn{{#if f.active}} active{{/if}}" data-action="setEraFilter" data-era="{{f.key}}">{{localize f.label}}</button>
+    {{/each}}
+  </nav>
+
+  {{#if hasActors}}
+    {{#each groups as |g|}}
+      <div class="coc7-san-group {{g.cssKey}}">
+        <div class="coc7-san-group-header">
+          <h3 class="coc7-san-group-title">{{localize g.label}}</h3>
+          {{#if g.sub}}<span class="coc7-san-group-sub">{{g.sub}}</span>{{/if}}
+        </div>
+        <table class="coc7-san-table">
+          <thead>
+            <tr>
+              <th class="coc7-san-th-portrait"></th>
+              <th>{{localize "COC7SAN.ColName"}}</th>
+              <th class="coc7-san-th-value">{{localize "COC7SAN.ColSan"}}</th>
+              <th class="coc7-san-th-state">{{localize "COC7SAN.ColState"}}</th>
+              <th class="coc7-san-th-era">{{localize "COC7SAN.ColEra"}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each g.actors as |a|}}
+              <tr class="{{a.rowClass}}">
+                <td class="coc7-san-portrait"><img src="{{a.img}}" alt="{{a.name}}" /></td>
+                <td class="coc7-san-name">{{a.name}}</td>
+                <td class="coc7-san-value">{{a.sanDisplay}}<span class="coc7-san-max">/{{a.maxDisplay}}</span></td>
+                <td class="coc7-san-state">
+                  {{#if a.isCritical}}
+                    <span class="coc7-san-badge coc7-san-badge-critical" title="{{localize 'COC7SAN.CriticalTitle'}}">&#9760;</span>
+                  {{else if a.isLowest}}
+                    <span class="coc7-san-badge coc7-san-badge-lowest" title="{{localize 'COC7SAN.LowestTitle'}}">&#9670;</span>
+                  {{/if}}
+                </td>
+                <td class="coc7-san-era-cell">
+                  <select class="coc7-era-select" data-actor-id="{{a.id}}">
+                    {{#each a.eraOptions as |o|}}
+                      <option value="{{o.key}}" {{#if o.selected}}selected{{/if}}>{{localize o.label}}</option>
+                    {{/each}}
+                  </select>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <p class="coc7-san-summary">
+          {{localize "COC7SAN.Lowest"}} : <strong>{{g.lowestDisplay}}</strong>
+        </p>
+      </div>
+    {{/each}}
+    {{#if filteredEmpty}}<p class="coc7-san-empty">{{localize "COC7SAN.FilteredEmpty"}}</p>{{/if}}
+  {{else}}
+    <p class="coc7-san-empty">{{localize "COC7SAN.NoActors"}}</p>
+  {{/if}}
+
+  <button type="button" data-action="refresh" class="coc7-san-refresh">
+    <span class="coc7-san-refresh-icon"><i class="fa-solid fa-rotate"></i></span>
+    {{localize "COC7SAN.Refresh"}}
+  </button>
+</section>

@@ -1,0 +1,84 @@
+{
+  "id": "coc7-suivi-groupe",
+  "title": "CoC7 — Suivi du groupe",
+  "description": "Réunit dans une seule fenêtre à onglets tes quatre suivis CoC7 : Chance, Santé Mentale, Liens (Bonds) et Poursuite. Chaque onglet garde toutes les fonctions du module d'origine et ses données (époques, liens, poursuite en cours). Remplace coc7-luck-tracker, coc7-san-tracker, coc7-bonds-tracker et coc7-chase-tracker. Foundry v14.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "magisterphamtom",
+      "url": "https://github.com/magisterphamtom"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.368"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "CoC7",
+        "type": "system",
+        "compatibility": {
+          "minimum": "8.14",
+          "verified": "8.16"
+        }
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "coc7-luck-tracker",
+        "type": "module",
+        "reason": "Réuni dans le Suivi du groupe : à désactiver."
+      },
+      {
+        "id": "coc7-san-tracker",
+        "type": "module",
+        "reason": "Réuni dans le Suivi du groupe : à désactiver."
+      },
+      {
+        "id": "coc7-bonds-tracker",
+        "type": "module",
+        "reason": "Réuni dans le Suivi du groupe : à désactiver."
+      },
+      {
+        "id": "coc7-chase-tracker",
+        "type": "module",
+        "reason": "Réuni dans le Suivi du groupe : à désactiver."
+      }
+    ]
+  },
+  "styles": [
+    "styles/luck-tracker.css",
+    "styles/san-tracker.css",
+    "styles/bonds-tracker.css",
+    "styles/chase-tracker.css",
+    "styles/suivi.css"
+  ],
+  "url": "https://github.com/magisterphamtom/coc7-suivi-groupe",
+  "manifest": "https://github.com/magisterphamtom/coc7-suivi-groupe/releases/latest/download/module.json",
+  "download": "https://github.com/magisterphamtom/coc7-suivi-groupe/releases/download/v1.0.0/module.zip",
+  "bugs": "https://github.com/magisterphamtom/coc7-suivi-groupe/issues",
+  "readme": "https://github.com/magisterphamtom/coc7-suivi-groupe/blob/main/README.md",
+  "license": "https://github.com/magisterphamtom/coc7-suivi-groupe/blob/main/LICENSE",
+  "media": [
+    {
+      "type": "cover",
+      "url": "https://raw.githubusercontent.com/magisterphamtom/coc7-suivi-groupe/main/docs/images/banniere.webp"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Suivi : Liens",
+  "type": "script",
+  "img": "modules/coc7-suivi-groupe/icons/macros/suivi-liens.svg",
+  "scope": "global",
+  "command": "const mod = game.modules.get(\"coc7-suivi-groupe\");\nif (!mod?.active) return ui.notifications.warn(\"Le module « Suivi du groupe » n'est pas activé.\");\nmod.api.ouvrir(\"liens\");",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

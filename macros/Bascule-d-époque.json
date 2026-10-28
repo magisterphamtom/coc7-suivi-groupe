@@ -1,0 +1,13 @@
+{
+  "name": "Bascule d'époque",
+  "type": "script",
+  "img": "modules/coc7-bascule-epoque/icons/macros/bascule-epoque.svg",
+  "scope": "global",
+  "command": "const mod = game.modules.get(\"coc7-bascule-epoque\");\nif (!mod?.active) return ui.notifications.warn(\"Le module « Bascule d'époque » n'est pas activé.\");\nmod.api.open(\"epoques\");",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Réglages des époques",
+  "type": "script",
+  "img": "modules/coc7-bascule-epoque/icons/macros/bascule-reglages.svg",
+  "scope": "global",
+  "command": "const mod = game.modules.get(\"coc7-bascule-epoque\");\nif (!mod?.active) return ui.notifications.warn(\"Le module « Bascule d'époque » n'est pas activé.\");\nmod.api.open(\"reglages\");",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

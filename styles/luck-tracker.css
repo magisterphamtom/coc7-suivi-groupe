@@ -1,0 +1,302 @@
+/* =====================================================================
+   CoC7 – Suivi de Chance du groupe
+   Habillage Art Déco : doré/noir pour 1933, doré/sarcelle pour 2025-2026
+   ===================================================================== */
+
+.coc7-luck-tracker {
+  --coc-ink: #14110d;
+  --coc-ink-2: #1e1911;
+  --coc-parchment: #ede3cb;
+  --coc-gold: #c9a227;
+  --coc-gold-light: #ecd27a;
+  --coc-gold-dim: rgba(201, 162, 39, 0.35);
+  --coc-teal: #4fb6ac;
+  --coc-teal-light: #8fe0d6;
+  --coc-option-text: #1c1710;
+  --coc-option-bg: #f2e9d0;
+
+  background: linear-gradient(165deg, var(--coc-ink) 0%, var(--coc-ink-2) 100%);
+  color: var(--coc-parchment);
+  padding: 10px 12px 12px;
+  border: 1px solid var(--coc-gold-dim);
+  border-radius: 2px;
+  font-family: "Signika", "Palatino Linotype", Georgia, serif;
+}
+
+/* ---- Fronton décoratif ---- */
+.coc7-deco-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.coc7-deco-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--coc-gold), transparent);
+}
+
+.coc7-deco-diamond {
+  color: var(--coc-gold);
+  font-size: 11px;
+  transform: scale(1, 1.3);
+}
+
+/* ---- Groupes / Époques ---- */
+.coc7-luck-group {
+  margin-bottom: 14px;
+  padding: 8px 10px 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--coc-gold-dim);
+  position: relative;
+}
+
+.coc7-luck-group::before,
+.coc7-luck-group::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--coc-gold);
+  top: -1px;
+}
+.coc7-luck-group::before { left: -1px; border-right: none; border-bottom: none; }
+.coc7-luck-group::after  { right: -1px; border-left: none; border-bottom: none; }
+
+.coc7-luck-group-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px double var(--coc-gold-dim);
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+.coc7-luck-group-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: var(--coc-gold-light);
+  text-shadow: 0 0 6px rgba(201, 162, 39, 0.25);
+}
+
+.coc7-luck-group-sub {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--coc-gold-dim);
+  font-variant: small-caps;
+  white-space: nowrap;
+}
+
+/* Teinte spécifique à l'époque 1933 (doré / sépia) */
+.coc7-luck-group.era-1933 {
+  border-color: var(--coc-gold-dim);
+}
+.coc7-luck-group.era-1933 .coc7-luck-group-title {
+  color: var(--coc-gold-light);
+}
+.coc7-luck-group.era-1933 .coc7-luck-portrait img {
+  filter: sepia(0.55) contrast(1.05) brightness(0.95);
+}
+
+/* Teinte spécifique à l'époque moderne (doré / sarcelle) */
+.coc7-luck-group.era-modern {
+  border-color: rgba(79, 182, 172, 0.35);
+}
+.coc7-luck-group.era-modern .coc7-luck-group-title {
+  color: var(--coc-teal-light);
+  text-shadow: 0 0 6px rgba(79, 182, 172, 0.25);
+}
+.coc7-luck-group.era-modern::before,
+.coc7-luck-group.era-modern::after {
+  border-color: var(--coc-teal);
+}
+.coc7-luck-group.era-modern .coc7-luck-group-header {
+  border-bottom-color: rgba(79, 182, 172, 0.35);
+}
+.coc7-luck-group.era-modern .coc7-luck-lowest {
+  background: rgba(79, 182, 172, 0.18);
+  box-shadow: inset 3px 0 0 var(--coc-teal);
+}
+.coc7-luck-group.era-modern .coc7-luck-value {
+  color: var(--coc-teal-light);
+}
+
+.coc7-luck-group.era-unassigned .coc7-luck-group-title {
+  color: #a8a297;
+  text-shadow: none;
+}
+
+/* ---- Tableau ---- */
+.coc7-luck-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4px;
+}
+
+.coc7-luck-table th {
+  text-align: left;
+  padding: 3px 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--coc-gold-dim);
+  border-bottom: 1px solid var(--coc-gold-dim);
+}
+
+.coc7-luck-th-value,
+.coc7-luck-value {
+  text-align: center;
+}
+
+.coc7-luck-th-era {
+  text-align: left;
+}
+
+.coc7-luck-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.12);
+  vertical-align: middle;
+  color: var(--coc-parchment);
+}
+
+.coc7-luck-table tbody tr:hover {
+  background: rgba(201, 162, 39, 0.08);
+}
+
+.coc7-luck-portrait img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 3px;
+  border: 1px solid var(--coc-gold-dim);
+}
+
+.coc7-luck-name {
+  letter-spacing: 0.3px;
+}
+
+.coc7-luck-value {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--coc-gold-light);
+}
+
+.coc7-luck-lowest {
+  background: rgba(201, 162, 39, 0.16);
+  box-shadow: inset 3px 0 0 var(--coc-gold);
+}
+
+/* ---- Sélecteur d'époque ---- */
+.coc7-era-select {
+  width: 100%;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--coc-parchment);
+  border: 1px solid var(--coc-gold-dim);
+  border-radius: 1px;
+  padding: 2px 4px;
+}
+.coc7-era-select:hover,
+.coc7-era-select:focus {
+  border-color: var(--coc-gold);
+}
+/* Correctif de contraste : la liste déroulante ouverte est rendue par le
+ * navigateur avec un fond clair natif (le style du <select> fermé ne s'y
+ * applique pas). Sans cette règle, le texte hérite d'une couleur claire
+ * et devient illisible sur ce fond clair. On fixe donc explicitement un
+ * texte foncé sur fond clair pour chaque <option>. */
+.coc7-era-select option {
+  color: var(--coc-option-text);
+  background-color: var(--coc-option-bg);
+}
+
+/* ---- Résumé ---- */
+.coc7-luck-summary {
+  text-align: right;
+  margin: 2px 2px 0;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--coc-gold-dim);
+}
+.coc7-luck-summary strong {
+  color: var(--coc-gold-light);
+  font-size: 13px;
+}
+
+.coc7-luck-empty {
+  text-align: center;
+  font-style: italic;
+  opacity: 0.75;
+  margin: 14px 0;
+}
+
+/* ---- Bouton Actualiser ---- */
+.coc7-luck-refresh {
+  width: 100%;
+  margin-top: 4px;
+  background: transparent;
+  color: var(--coc-gold-light);
+  border: 1px solid var(--coc-gold);
+  border-radius: 1px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 11px;
+  padding: 5px 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.coc7-luck-refresh:hover {
+  background: var(--coc-gold);
+  color: var(--coc-ink);
+}
+.coc7-luck-refresh-icon {
+  margin-right: 4px;
+}
+
+/* ---- Filtre d'époque (1933 / 2025-2026 / les deux) ---- */
+.coc7-luck-tracker .coc7-era-filter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: -2px 0 10px;
+}
+.coc7-luck-tracker .coc7-era-filter-label {
+  flex: 1;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--coc-gold, #c9a227);
+}
+.coc7-luck-tracker .coc7-era-filter-btn {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 64px;
+  height: 24px;
+  line-height: 22px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--coc-parchment, #ede3cb);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--coc-gold-dim, rgba(201, 162, 39, 0.35));
+  border-radius: 2px;
+  cursor: pointer;
+}
+.coc7-luck-tracker .coc7-era-filter-btn:hover {
+  border-color: var(--coc-gold, #c9a227);
+  box-shadow: none;
+}
+.coc7-luck-tracker .coc7-era-filter-btn.active {
+  color: var(--coc-ink, #14110d);
+  background: linear-gradient(180deg, var(--coc-gold-light, #ecd27a), var(--coc-gold, #c9a227));
+  border-color: var(--coc-gold, #c9a227);
+}
+.coc7-luck-tracker .coc7-era-filter-btn[data-era="modern"].active {
+  background: linear-gradient(180deg, var(--coc-teal-light, #8fe0d6), var(--coc-teal, #4fb6ac));
+  border-color: var(--coc-teal, #4fb6ac);
+}
